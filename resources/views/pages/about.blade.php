@@ -5,6 +5,7 @@
   <title>about</title>
 </head>
 <body>
-  <h1>About Me!</h1>
+  <h1>About Me: {{ $first_name }} {{ $last_name }}</h1>
 </body>
+
 </html>
