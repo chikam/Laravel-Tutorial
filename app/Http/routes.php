@@ -16,6 +16,8 @@ Route::get('contact', 'PagesController@contact');
 Route::get('test', 'TestController@test');
 Route::get('about', 'PagesController@about');
 Route::get('home', 'HomeController@index');
+Route::get('articles', 'ArticlesController@index');
+Route::get('articles/{id}', 'ArticlesController@show');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
