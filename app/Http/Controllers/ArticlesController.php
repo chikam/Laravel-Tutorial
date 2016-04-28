@@ -23,9 +23,14 @@ class ArticlesController extends Controller {
     return view('articles.create');
   }
 
-  public function store() {
-    $inputs = \Request::all();
-    Article::create($inputs);
+  public function store(Request $request) {
+    $rules = [
+      'title' => 'required|min:3',
+      'body' => 'required',
+      'published_at' => 'required|date',
+    ];
+    $this->validate($request, $rules);
+    Article::create($request->all());
     return redirect('articles');
   }
 }
