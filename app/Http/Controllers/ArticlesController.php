@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers;
 
-use App\Http\Requests;
+use App\Http\Requests\ArticleRequest;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
@@ -23,13 +23,7 @@ class ArticlesController extends Controller {
     return view('articles.create');
   }
 
-  public function store(Request $request) {
-    $rules = [
-      'title' => 'required|min:3',
-      'body' => 'required',
-      'published_at' => 'required|date',
-    ];
-    $this->validate($request, $rules);
+  public function store(ArticleRequest $request) {
     Article::create($request->all());
     return redirect('articles');
   }
