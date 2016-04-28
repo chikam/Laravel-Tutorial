@@ -22,4 +22,10 @@ class ArticlesController extends Controller {
   public function create() {
     return view('articles.create');
   }
+
+  public function store() {
+    $inputs = \Request::all();
+    Article::create($inputs);
+    return redirect('articles');
+  }
 }
