@@ -20,6 +20,8 @@ Route::get('articles', 'ArticlesController@index');
 Route::get('articles/create', 'ArticlesController@create');
 Route::get('articles/{id}', 'ArticlesController@show');
 Route::post('articles', 'ArticlesController@store');
+Route::get('articles/{id}/edit', 'ArticlesController@edit');
+Route::patch('articles/{id}', 'ArticlesController@update');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
