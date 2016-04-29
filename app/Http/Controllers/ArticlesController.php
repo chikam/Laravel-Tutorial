@@ -5,12 +5,13 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Article;
+use Carbon\Carbon;
 
 class ArticlesController extends Controller {
 
   public function index() {
     // $articles = Article::all();
-    $articles = Article::latest('published_at')->get();
+    $articles = Article::latest('published_at')->where('published_at', '<=', Carbon::now())->get();
 
     return view('articles.index', compact('articles'));
   }
