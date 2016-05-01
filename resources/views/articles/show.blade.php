@@ -13,8 +13,6 @@
 
     {!! link_to(action('ArticlesController@edit', [$article->id]), '編集', ['class' => 'btn btn-primary']) !!}
 
-    {!! Form::open(['method' => 'DELETE', 'url' => ['articles', $article->id]]) !!}
-        {!! Form::submit('削除', ['class' => 'btn btn-danger']) !!}
-    {!! Form::close() !!}
+    {!! delete_form(['articles', $article->id]) !!}
   @stop
 @endsection
